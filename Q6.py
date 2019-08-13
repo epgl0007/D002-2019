@@ -12,3 +12,4 @@ elif (number == integer):
 
 if guess == 3:
     print("Sorry, you lose.")
+#Imcomplete
