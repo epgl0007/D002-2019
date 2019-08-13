@@ -1,6 +1,6 @@
+
 # D002 Lesson 3
 # Q1:  Warm up exercise
-
 # a) Go Dutch
 from math import *
 
@@ -21,7 +21,7 @@ while number <= 100:
     if number % 7 == 0 or number % 10 == 7:   # replace with your code
         print('X', end=' ')
     else:
-        print(number, end=' ')    
+        print(number, end=' ')  
     number = number + 1
 print("\nGame Over.")
 
@@ -36,8 +36,9 @@ from random import randint
 number = randint(1,6)
 print("\n I got a %d" % number)
 count = 1
-while ___________________ : # replace with your code
+while number < 6: # replace with your code
     # Write some more code
+    number = randint(1,6)
     print("I got a %d" % number)
     count = count + 1
 
@@ -47,3 +48,20 @@ print("Oh, it takes me %d times to get a 6!!!" % count)
 # d) How long it takes, in general?
 # Repeat the experiment in part c for 100 times and see what is the average 
 # value of the count would be. This is challenging, isn't it?
+
+
+from random import randint
+
+number = randint(1,6)
+print("\n I got a %d" % number)
+count = 1
+six = 1
+while count < 100:
+    # Write some more code
+    number = randint(1,6)
+    print("I got a %d" % number)
+    if number == 6:
+        six = six + 1
+    count = count + 1
+
+print("Oh, I get a 6 %d times!!!" % six)
