@@ -1,67 +1,99 @@
+# Q1
 
-# D002 Lesson 3
-# Q1:  Warm up exercise
-# a) Go Dutch
-from math import *
+# a) Gotcha.
+# You are a Pokemon trainer and you catch new monster everyday.
+# A list, which is called "collection", stores all kinds of pokemon that you
+# have collected so far. The list "collection" does not stores how many same kind of
+# monster you have got. Each monster of the same kind will be stored once.
 
-people = int(input("How many people are sharing the bill?\n"))
-bill = float(input("How much is the bill?\n"))
-print("Kevin paid the bill first. But Kevin only has 100 dollar notes")
-print("So Kevin is going to paid $%d." % (ceil(bill/100)*100))   # replace with your code
-print("The cafe is giving %f to Kevin." % (ceil(bill/100)*100 - bill))  # replace with your code
-print("Each one should give %f to Kevin." % (bill / people)) # replace with your code
+collection = ["Pikachu", "Bulbasaur", "Squirtle", "Nidoqueen"]
+newly_caught = ["Bulbasaur", "Kakuna", "Arbok", "Jigglypuff"]
 
-# b) Clap at Seven 
-# The purpose of the following program is to print the number from 1 to 100,
-# in order. However, when the number is a multiple of 7 (e.g. 7/14/21) or when
-# the last digit of the number is 7 (e.g. 17/27/37), it print a X instead
+for i in newly_caught:
+    if not i in collection: # your code here
+        collection.append(i)       # your code here
 
-number = 1
-while number <= 100:
-    if number % 7 == 0 or number % 10 == 7:   # replace with your code
-        print('X', end=' ')
-    else:
-        print(number, end=' ')  
-    number = number + 1
-print("\nGame Over.")
-
-# c) How long it takes?
-# In a Chinese board game the player can start its game only when he can
-# get a 6 in rolling a dice. Please do an experiment to test your luck today
-# and see how long it takes to get a dice
-
-from random import randint
-
-#code for rolling a dice
-number = randint(1,6)
-print("\n I got a %d" % number)
-count = 1
-while number < 6: # replace with your code
-    # Write some more code
-    number = randint(1,6)
-    print("I got a %d" % number)
-    count = count + 1
-
-print("Oh, it takes me %d times to get a 6!!!" % count)
+print(collection) # should print ['Pikachu', 'Bulbasaur', 'Squirtle', 'Nidoqueen', 'Kakuna', 'Arbok', 'Jigglypuff']
 
 
-# d) How long it takes, in general?
-# Repeat the experiment in part c for 100 times and see what is the average 
-# value of the count would be. This is challenging, isn't it?
+# b) Shaking the stock market.
+# You are given a list that stores the Hangseng Index
+# of a period of time. Each number represents the HSI recorded at the end of a
+# day. You want to find how many points it goes up and down in each day.
+# Put those changes into another list.
+
+hsi = [20000, 21000, 21500, 22125, 21015, 22013, 19942, 24500]
+change = []
+
+# your code here
+for i in range(0, len(hsi) - 1):
+    change.append(hsi[i + 1] - hsi[i])
+
+print(change)  # should print [1000, 500, 625, -1110, 998, -2071, 4558]
 
 
-from random import randint
+# c) TV remote control
+# Not sure how many of you are still watching TV. Assume we have a list of channels
+# preset in your TV. If you press Up (U), it shows the next channel in the list.
+# If you press Down (D), it shows the previous channel. If you press Off (O), the
+# TV will explode and the program ends.
 
-number = randint(1,6)
-print("\n I got a %d" % number)
-count = 1
-six = 1
-while count < 100:
-    # Write some more code
-    number = randint(1,6)
-    print("I got a %d" % number)
-    if number == 6:
-        six = six + 1
-    count = count + 1
+channels = ["TVB", "CCTV", "VIU", "RTHK", "Netflix", "TBS", "KBS"]
 
-print("Oh, I get a 6 %d times!!!" % six)
+current_channel = 0
+while True:
+    print("You are now watching %s" % channels[current_channel])
+    a = input("Please choose either Up/Down/Off\n")
+    if a == 'U':
+        curent_channel = (current_channel + 1) % len(channels)      
+        print()
+    if a == 'D':
+        curent_channel = (current_channel - 1) % len(channels)
+        print()
+    if a == 'O':
+        break
+    # may be some more code
+
+
+
+### Expected Result
+##You are now watching TVB
+##Please choose either Up/Down/Off
+##U
+##You are now watching CCTV
+##Please choose either Up/Down/Off
+##U
+##You are now watching VIU
+##Please choose either Up/Down/Off
+##U
+##You are now watching RTHK
+##Please choose either Up/Down/Off
+##D
+##You are now watching VIU
+##Please choose either Up/Down/Off
+##D
+##You are now watching CCTV
+##Please choose either Up/Down/Off
+##U
+##You are now watching VIU
+##Please choose either Up/Down/Off
+##D
+##You are now watching CCTV
+##Please choose either Up/Down/Off
+##D
+##You are now watching TVB
+##Please choose either Up/Down/Off
+##D
+##You are now watching KBS
+##Please choose either Up/Down/Off
+##D
+##You are now watching TBS
+##Please choose either Up/Down/Off
+##U
+##You are now watching KBS
+##Please choose either Up/Down/Off
+##U
+##You are now watching TVB
+##Please choose either Up/Down/Off
+##O
+##>>>
