@@ -1,10 +1,11 @@
 def printer(secret, opened):
     i = 0
     while i < len(secret):
-        if secret == opened[i]:
-            printer.append(_)
+        if i in opened:
+            print(secret[i], end="")
+            print("_", end="")
         i = i + 1
-        print(i, end="")
+    print()
 
 printer("apple", [1, 2])
 printer("orange", [0, 5])
