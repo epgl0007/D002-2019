@@ -13,18 +13,54 @@ def check_col(cells):
     for i in range(0, 2):
         if cells[0][i] == cells[1][i] == cells[2][i] != 'O':
             return True
+            print("'O' wins!")
+            break
     return False
 
 def check_row(cells):
     for i in range(0, 2):
         if cells[i][0] == cells[i][1] == cells[i][2] != 'O':
             return True
+            print("'O' wins!")
+            break
     return False
 
 def check_diag(cells):
     for i in range(0, 2):
-        if cells[i][i] == cells[i + 1][i + 1] == cells[i + 2][i + 2] != 'O':
+        if cells[i][j] == cells[i + 1][j + 1] == cells[i + 2][j + 2] != 'O':
             return True
+            print("'O' wins!")
+            break
+    return False
+
+def check_col(cells):
+    for i in range(0, 2):
+        if cells[0][i] == cells[1][i] == cells[2][i] != 'X':
+            return True
+            print("'X' wins!")
+            break
+    return False
+
+def check_row(cells):
+    for i in range(0, 2):
+        if cells[i][0] == cells[i][1] == cells[i][2] != 'X':
+            return True
+            print("'X' wins!")
+            break
+    return False
+
+def check_diag(cells):
+    for i in range(0, 2):
+        if cells[i][j] == cells[i + 1][j + 1] == cells[i + 2][j + 2] != 'X':
+            return True
+            print("'X' wins!")
+            break
+    return False
+
+def check(cells):
+    if check_col(cells) or check_row(cells) or check_diagonal(cells):
+        return True
+        break
     return False
 
 turn = 0
@@ -37,8 +73,10 @@ while True:
     row = int(input("Please enter row"))
     if cells[row][col] == 'O':
         print("It is taken already")
-    if cells[row][col] == 'X':
+    elif cells[row][col] == 'X':
         print("It is taken already")
+    elif cells[row][col] == (3, 100000000):
+        print("Wrong input")
     else:
         if turn == 0:
             cells[row][col] = 'X'
@@ -46,7 +84,8 @@ while True:
         elif turn == 1:
             cells[row][col] = 'O'
             turn = 0
-        printcell(cells)       
-while False:
-    print("Wrong Input.")
-
+        printcell(cells)
+        else:
+            if cells = []:
+                print("Draw...")
+                break
